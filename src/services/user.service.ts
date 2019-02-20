@@ -1,11 +1,14 @@
+require('dotenv').load()
+
 import * as bcrypt from 'bcrypt'
 import * as jwt from 'jsonwebtoken'
 import * as Bluebird from 'bluebird'
 import { User, UserAddModel, UserViewModel } from '../models/user'
 
+const config = require('../config')
 export class UserService {
     private readonly _saltRounds = 12
-    private readonly _jwtSecret = 'd8e87a4c063de26f71d64116b996cee5' //MD5(Keleya)
+    private readonly _jwtSecret = config.secret //MD5(Keleya)
 
     static get userAttributes() {
         return ['id', 'username']

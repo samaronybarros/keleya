@@ -6,4 +6,5 @@ module.exports = {
     dbMaster: process.env.DB_MASTER,
     usernameMaster: process.env.USERNAME_MASTER,
     passwordMaster: process.env.PASSWORD_MASTER,
+    secret: process.env.SECRET,
 }
