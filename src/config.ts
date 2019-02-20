@@ -1,5 +1,6 @@
 module.exports = {
     env: process.env.NODE_ENV,
+    apiServer: process.env.API_SERVER,
     serverPort: process.env.SERVER_PORT,
     dbDialect: process.env.MYSQL_DIALECT,
     dbPort: process.env.MYSQL_PORT,

@@ -3,8 +3,17 @@
     "version": "1.0.0",
     "description": "Keleya Challenge Test",
     "main": "index.js",
+    "ava": {
+        "compileEnhancements": false,
+        "extensions": [
+            "ts"
+        ],
+        "require": [
+            "ts-node/register"
+        ]
+    },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "tsc && ava",
         "start:ts": "npx tsc --watch",
         "start:server": "nodemon dist/index.js",
         "start:dev": "concurrently 'npm run start:ts' 'npm run start:server'"
@@ -12,6 +21,7 @@
     "author": "Sam Barros",
     "license": "ISC",
     "dependencies": {
+        "axios": "^0.18.0",
         "bcrypt": "^3.0.4",
         "body-parser": "^1.18.3",
         "concurrently": "^4.1.0",
@@ -36,6 +46,8 @@
         "@types/jsonwebtoken": "^8.3.0",
         "@types/node": "^11.9.4",
         "@types/sequelize": "^4.27.36",
+        "ava": "^1.2.1",
+        "ts-node": "^8.0.2",
         "typescript": "^3.3.3"
     }
 }
