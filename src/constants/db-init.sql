@@ -5,8 +5,9 @@ create database keleya;
 use keleya;
 
 drop table if exists users;
-create table users(
-    id int auto_increment primary key,
+create table users
+(
+    id int primary key auto_increment,
     username text not null,
     password text not null,
     createdAt datetime,
@@ -14,11 +15,15 @@ create table users(
 );
 
 drop table if exists posts;
-create table posts(
-    id int auto_increment primary key,
+create table posts
+(
+    id int primary key auto_increment,
+    author_id int,
     title text not null,
     body text not null,
-    CONSTRAINT author_id FOREIGN KEY (id) REFERENCES users(id),
+    FOREIGN KEY
+(author_id) REFERENCES users
+(id),
     createdAt datetime,
     updatedAt datetime
 );
