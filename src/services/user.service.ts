@@ -20,14 +20,20 @@ export class UserService {
 
     register({ username, password }: UserAddModel) {
         return bcrypt.hash(password, this._saltRounds).then(hash => {
-            return User.create({ username, password: hash }).then(u => this.getUserById(u!.id))
+            return User.create({ username, password: hash }).then(u => {
+                return this.getUserById(u!.id)
+            })
         })
+    }
+
+    createToken(id: number, username: string) {
+        return jwt.sign({ id, username }, this._jwtSecret)
     }
 
     login({ username }: UserAddModel) {
         return User.findOne({ where: { username } }).then(u => {
             const { id, username } = u!
-            return { token: jwt.sign({ id, username }, this._jwtSecret) }
+            return { token: this.createToken(id, username) }
         })
     }
 
@@ -49,6 +55,9 @@ export class UserService {
     getUserById(id: number) {
         return User.findById(id, {
             attributes: UserService.userAttributes,
-        }) as Bluebird<UserViewModel>
+        }).then(u => {
+            const { id, username } = u!
+            return { id, username, token: this.createToken(id, username) }
+        })
     }
 }
