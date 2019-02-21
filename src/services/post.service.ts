@@ -5,7 +5,7 @@ import { User } from '../models/user'
 
 export class PostService {
     static get postAttributes() {
-        return ['id', 'title', 'body']
+        return ['id', 'title', 'body', 'createdAt']
     }
     static get userAttributes() {
         return ['id', 'username']
@@ -21,7 +21,16 @@ export class PostService {
 
     getPostById(id: number) {
         return Post.findById(id, {
+            include: [
+                {
+                    model: User,
+                    where: { author_id: Sequelize.col('author.id') },
+                    attributes: PostService.userAttributes,
+                    as: 'author',
+                },
+            ],
             attributes: PostService.postAttributes,
+            order: [['createdAt', 'DESC']],
         }) as Bluebird<PostViewModel>
     }
 

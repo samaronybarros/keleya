@@ -25,6 +25,7 @@ export interface PostViewModel {
     id: number
     title: string
     body: string
+    createdAt: string
     author_id: number
 }
 
