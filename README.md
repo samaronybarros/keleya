@@ -11,7 +11,7 @@ This is the documentation of the [Keleyas's Challenge Test](https://gist.github.
 For this project, I decided to use MySQL, Express.js, TypeScript, and Node.js.
 Firstly, you should install
 
--   [Mongo](https://www.mysql.com/) 8.0+
+-   [Mysql](https://www.mysql.com/) 8.0+
 -   [ExpressJS](https://expressjs.com/) 4.16.3+
 -   [TypeScript](https://www.typescriptlang.org/) 3.3+
 -   [Node](https://nodejs.org/en/) 11.4.0+ (It's recommended to use 10.15.1 LTS)
