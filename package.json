@@ -16,7 +16,10 @@
         "test": "tsc && ava",
         "start:ts": "npx tsc --watch",
         "start:server": "nodemon dist/index.js",
-        "start:dev": "concurrently 'npm run start:ts' 'npm run start:server'"
+        "start:dev": "concurrently 'npm run start:ts' 'npm run start:server'",
+        "clean-install": "rm -rf node_modules package-lock.json && npm install",
+        "create-db": "mysql -u root -p mysql < src/constants/db-init.sql",
+        "fake-data": "mysql -u root -p mysql < src/constants/fake-data.sql"
     },
     "author": "Sam Barros",
     "license": "ISC",

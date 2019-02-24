@@ -71,6 +71,20 @@ $ cd keleya
 $ npm install
 ```
 
+### Creating Database
+
+To create database `keleya`, you should run the command below.
+
+```
+$ npm run create-db
+```
+
+After type the password of root DB, your database will be created. If you'd like inpt some fake data you can:
+
+```
+$ npm run fake-data
+```
+
 ## Starting application
 
 To start application you should up the Typescript and node server, doing respectively (in different terminals):
@@ -126,3 +140,9 @@ The application's backend is formed by 5 `endpoints`
     -   `@returns` - All the properties of the newly created model
 
 ![post-post-token](doc/gif/post-post-token.gif)
+
+## Amazon AWS
+
+You can use the current link from Amazon EC2, `ec2-52-14-55-156.us-east-2.compute.amazonaws.com`, to tests the application anywhere. As showed below.
+
+![aws](doc/gif/aws.gif)
